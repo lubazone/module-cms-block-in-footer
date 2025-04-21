@@ -1,0 +1,12 @@
+<?php
+
+/** @var \Magento\Framework\Registry $registry */
+$category = $block->getCurrentCategory() ?? $block->getRegistry()->registry('current_category');
+
+if ($category) {
+    $customDropdownValue = $category->getData('footer_static_block');
+    if ($customDropdownValue != null) {
+        echo $this->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId($customDropdownValue)->toHtml();
+    }
+}
+?>
